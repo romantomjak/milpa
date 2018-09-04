@@ -13,3 +13,13 @@ func Test_Maps_Letters_To_Codes(t *testing.T) {
     }
 }
 
+func Test_Ignores_Unknown_Symbols(t *testing.T) {
+    symbols := []string{" ", ",", ";", "!"}
+    for _, symbol := range symbols {
+        result := LetterToCode(symbol)
+        if symbol != result {
+            t.Errorf("Expected '%s' to be the same, but got '%s'", symbol, result)
+        }
+    }
+}
+
