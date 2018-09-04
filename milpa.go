@@ -2,6 +2,8 @@ package main
 
 import (
     "bytes"
+    "fmt"
+    "os"
     "strings"
 )
 
@@ -60,5 +62,17 @@ func WordToCode(word string) string {
 		buffer.WriteString(code + space)
 	}
 	return buffer.String()
+}
+
+func main() {
+    if len(os.Args) < 2 {
+        fmt.Printf("usage: %s hello world\n", os.Args[0])
+        os.Exit(1)
+    }
+
+    for i := 1; i < len(os.Args); i++ {
+        word := os.Args[i]
+        fmt.Println(WordToCode(word))
+    }
 }
 
