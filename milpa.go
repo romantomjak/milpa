@@ -1,6 +1,7 @@
 package main
 
 import (
+    "bytes"
     "strings"
 )
 
@@ -45,6 +46,19 @@ func LetterToCode(letter string) string {
 }
 
 func WordToCode(word string) string {
-    return "Foxtrot Oscar Oscar"
+    var buffer bytes.Buffer
+	for index, character := range word {
+		letter := string(character)
+		if letter == " " {  // don't process spaces
+			continue
+		}
+		code := LetterToCode(letter)
+		space := " "
+		if index+1 == len(word) {  // skip trailing space
+			space = ""
+		}
+		buffer.WriteString(code + space)
+	}
+	return buffer.String()
 }
 
