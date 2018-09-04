@@ -30,6 +30,9 @@ var CODES = map[string]string{
 }
 
 func LetterToCode(letter string) string {
-    return CODES[letter]
+    if val, ok := CODES[letter]; ok {
+        return val
+    }
+    return letter
 }
 
