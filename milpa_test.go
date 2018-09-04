@@ -1,6 +1,7 @@
 package main
 
 import (
+    "strings"
     "testing"
 )
 
@@ -19,6 +20,16 @@ func Test_Ignores_Unknown_Symbols(t *testing.T) {
         result := LetterToCode(symbol)
         if symbol != result {
             t.Errorf("Expected '%s' to be the same, but got '%s'", symbol, result)
+        }
+    }
+}
+
+func Test_Ignores_Case(t *testing.T) {
+    for letter, code := range CODES {
+        lcLetter := strings.ToLower(letter)
+        result := LetterToCode(lcLetter)
+        if code != result {
+            t.Errorf("Expected '%s' to be a '%s' but got '%s'", lcLetter, code, result)
         }
     }
 }
