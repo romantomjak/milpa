@@ -1,5 +1,9 @@
 package main
 
+import (
+    "strings"
+)
+
 var CODES = map[string]string{
     "A": "Alpha",
     "B": "Bravo",
@@ -30,9 +34,13 @@ var CODES = map[string]string{
 }
 
 func LetterToCode(letter string) string {
-    if val, ok := CODES[letter]; ok {
+    code := letter
+    if strings.ToLower(letter) == letter {
+        code = strings.ToUpper(letter)
+    }
+    if val, ok := CODES[code]; ok {
         return val
     }
-    return letter
+    return code
 }
 
