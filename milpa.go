@@ -44,3 +44,7 @@ func LetterToCode(letter string) string {
     return code
 }
 
+func WordToCode(word string) string {
+    return "Foxtrot Oscar Oscar"
+}
+
