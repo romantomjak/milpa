@@ -34,3 +34,11 @@ func Test_Ignores_Case(t *testing.T) {
     }
 }
 
+func Test_Maps_Word_To_Codes(t *testing.T) {
+    word := "Foo"
+    want := "Foxtrot Oscar Oscar"
+    got := WordToCode(word)
+    if got != want {
+        t.Errorf("Expected '%s' to be a '%s' but got '%s'", word, want, got)
+    }
+}
